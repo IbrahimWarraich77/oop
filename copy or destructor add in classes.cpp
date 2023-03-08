@@ -3,13 +3,13 @@ using namespace std;
 class student
 {
 	public:
-	int sapid;
+	int *sapid;
 	int semester;
 	string name;
 	float cgpa;
 	student()
 	{
-		sapid=0;
+		new sapid=0;
 		semester=0;
 		name="";
 		cgpa=0.0;
@@ -45,9 +45,10 @@ class student
 	}
 	//destructor
 	~student(){
-		cout<<"destructor of student is running:";
+		cout<<"destructor of student is running:"<<endl;
 	}
-	
+
+   delete sapid;
 };
 int main()
 {
@@ -56,10 +57,12 @@ int main()
 	s1.name="ibrahim";
 	s1.semester=2;
 	s1.cgpa=2.5;
+	student s2(s1);
 	cout<<"Details of Student 1 : "<<endl;
 	cout<<"sap id:"<<s1.sapid<<endl;
 	cout<<"name:"<<s1.name<<endl;
 	cout<<"semester"<<s1.semester<<endl;
 	cout<<"cgpa:"<<s1.cgpa<<endl;
+
 	return 0;	
 }
